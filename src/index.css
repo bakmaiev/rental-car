@@ -15,6 +15,16 @@ code {
     monospace;
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+}
+
 a,
 h1,
 h2,

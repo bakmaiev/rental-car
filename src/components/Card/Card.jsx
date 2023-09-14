@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   StyledIconBtn,
   StyledImg,
@@ -7,9 +7,8 @@ import {
   StyledInfoWrapper,
   StyledItem,
   StyledLearnMoreBtn,
-  StyledPrimaryInfo,
   StyledPrimaryList,
-  StyledSecondaryInfo,
+  StyledSecondaryList,
   StyledSecondaryText,
   StyledText,
 } from "./Card.styled";
@@ -34,7 +33,12 @@ const Card = ({ car }) => {
   const newArray = address.split(",");
   const country = newArray.slice(-1).join(",").trim();
   const city = newArray[newArray.length - 2].trim();
-  const isModalOpen = false;
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
 
   return (
     <StyledItem>
@@ -50,17 +54,17 @@ const Card = ({ car }) => {
             </StyledText>
             <StyledText>{rentalPrice}</StyledText>
           </StyledPrimaryList>
-          <StyledSecondaryInfo>
+          <StyledSecondaryList>
             <StyledSecondaryText>{city}</StyledSecondaryText>
             <StyledSecondaryText>{country}</StyledSecondaryText>
             <StyledSecondaryText>{rentalCompany}</StyledSecondaryText>
             <StyledSecondaryText>{type}</StyledSecondaryText>
-            <StyledSecondaryText>{make}</StyledSecondaryText>
             <StyledSecondaryText>{id}</StyledSecondaryText>
             <StyledSecondaryText>{accessories[0]}</StyledSecondaryText>
-          </StyledSecondaryInfo>
+          </StyledSecondaryList>
           {isModalOpen && (
             <Modal
+              onClose={toggleModal}
               key={id}
               model={model}
               make={make}
@@ -78,7 +82,7 @@ const Card = ({ car }) => {
           )}
         </StyledInfoBlock>
       </StyledInfoWrapper>
-      <StyledLearnMoreBtn>Learn more</StyledLearnMoreBtn>
+      <StyledLearnMoreBtn onClick={toggleModal}>Learn more</StyledLearnMoreBtn>
     </StyledItem>
   );
 };
