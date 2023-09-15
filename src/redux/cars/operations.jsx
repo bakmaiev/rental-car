@@ -14,7 +14,6 @@ export const getCars = createAsyncThunk(
     };
     try {
       const { data } = await axios.get("/adverts", options);
-      console.log(data);
       return data;
     } catch (e) {
       return rejectWithValue(e.message);

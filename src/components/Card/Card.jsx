@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import {
   StyledFavoriteIcon,
+  StyledIcon,
   StyledIconBtn,
   StyledImg,
   StyledImgWrapper,
@@ -14,9 +15,13 @@ import {
   StyledText,
 } from "./Card.styled";
 import Modal from "../Modal/Modal";
-import { AiOutlineHeart } from "react-icons/ai";
+import { useDispatch, useSelector } from "react-redux";
+import { selectFavorites } from "../../redux/cars/selectors";
+import { removeFavorite, setFavorite } from "../../redux/cars/carsSlice";
 
 const Card = ({ car }) => {
+  const dispatch = useDispatch();
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const {
     id,
     year,
@@ -28,7 +33,6 @@ const Card = ({ car }) => {
     rentalPrice,
     rentalCompany,
     address,
-    favorite,
     rentalConditions,
     mileage,
     functionalities,
@@ -37,12 +41,15 @@ const Card = ({ car }) => {
   const newArray = address.split(",");
   const country = newArray.slice(-1).join(",").trim();
   const city = newArray[newArray.length - 2].trim();
-
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isFavorite, setIsFavorite] = useState(false);
+  const favoriteCars = useSelector(selectFavorites);
+  const isFavorite = favoriteCars.find((car) => car.id === id);
 
   const handleFavoriteBtn = () => {
-    setIsFavorite(!isFavorite);
+    if (isFavorite) {
+      dispatch(removeFavorite(car));
+    } else {
+      dispatch(setFavorite(car));
+    }
   };
 
   const toggleModal = () => {
@@ -55,7 +62,7 @@ const Card = ({ car }) => {
         <StyledImgWrapper>
           <StyledImg src={img} alt={`${make} ${model}`} />
           <StyledIconBtn type="button" onClick={handleFavoriteBtn}>
-            <StyledFavoriteIcon />
+            {isFavorite ? <StyledFavoriteIcon /> : <StyledIcon />}
           </StyledIconBtn>
         </StyledImgWrapper>
         <StyledInfoBlock>

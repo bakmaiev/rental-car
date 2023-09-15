@@ -3,6 +3,7 @@ import { getCars } from "./operations";
 
 const initialState = {
   items: [],
+  favorites: [],
   totalItems: 0,
   page: 1,
   perPage: 8,
@@ -33,6 +34,14 @@ const carsSlice = createSlice({
     updatePage(state, action) {
       state.page += 1;
     },
+    setFavorite(state, action) {
+      state.favorites.push(action.payload);
+    },
+    removeFavorite(state, action) {
+      state.favorites = state.favorites.filter(
+        (car) => car.id !== action.payload.id
+      );
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -42,5 +51,5 @@ const carsSlice = createSlice({
   },
 });
 
-export const { updatePage } = carsSlice.actions;
+export const { updatePage, setFavorite, removeFavorite } = carsSlice.actions;
 export const carsReducer = carsSlice.reducer;

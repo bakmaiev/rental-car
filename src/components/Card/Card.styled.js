@@ -1,4 +1,4 @@
-import { AiOutlineHeart } from "react-icons/ai";
+import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import styled from "styled-components";
 
 export const StyledItem = styled.li`
@@ -105,12 +105,14 @@ export const StyledSecondaryText = styled.li`
   }
 `;
 
-export const StyledFavoriteIcon = styled(AiOutlineHeart)`
+export const StyledIcon = styled(AiOutlineHeart)`
   width: 18px;
   height: 18px;
   color: #ffffffcc;
-  fill: #ffffffcc;
-  &.active {
-    color: #3470ff;
-  }
+`;
+
+export const StyledFavoriteIcon = styled(AiFillHeart)`
+  width: 18px;
+  height: 18px;
+  color: #3470ff;
 `;
