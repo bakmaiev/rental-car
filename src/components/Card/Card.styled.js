@@ -63,12 +63,12 @@ export const StyledLearnMoreBtn = styled.button`
   padding: 12px 0;
   justify-content: center;
   align-items: center;
-  flex-shrink: 0;
   border-radius: 12px;
   background: #3470ff;
   border: none;
   cursor: pointer;
   outline: none;
+  font-family: Manrope;
   font-size: 14px;
   font-style: normal;
   font-weight: 600;

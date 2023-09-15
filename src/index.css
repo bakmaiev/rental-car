@@ -56,6 +56,11 @@ img {
   object-position: center center;
 }
 
+button {
+  border: 0;
+  padding: 0;
+}
+
 svg {
   display: block;
 }

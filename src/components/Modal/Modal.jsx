@@ -1,16 +1,26 @@
 import React, { useEffect } from "react";
 import { createPortal } from "react-dom";
 import {
+  StyledActionBtn,
   StyledBackdrop,
+  StyledCloseBtn,
+  StyledFunctBlock,
+  StyledFunctTitle,
   StyledImg,
   StyledImgWrapper,
+  StyledInfoTitle,
   StyledModal,
   StyledPrimaryBlock,
+  StyledPrimaryDescr,
   StyledPrimaryList,
+  StyledRentalBlock,
+  StyledRentalInfo,
+  StyledSecondaryBlock,
   StyledSecondaryList,
   StyledSecondaryText,
   StyledText,
 } from "./Modal.styled";
+import { AiOutlineClose } from "react-icons/ai";
 
 const modalRoot = document.querySelector("#modal-root");
 
@@ -23,12 +33,14 @@ const Modal = ({
   type,
   img,
   accessories,
+  description,
   rentalPrice,
   rentalCompany,
   address,
   favorite,
   mileage,
   functionalities,
+  rentalConditions,
 }) => {
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -47,6 +59,7 @@ const Modal = ({
   const newArray = address.split(",");
   const country = newArray.slice(-1).join(",").trim();
   const city = newArray[newArray.length - 2].trim();
+  const rentalConditionsSplitted = rentalConditions.split("\n");
 
   const handleBackdropClick = (e) => {
     if (e.target === e.currentTarget) {
@@ -56,6 +69,9 @@ const Modal = ({
   return createPortal(
     <StyledBackdrop onClick={handleBackdropClick}>
       <StyledModal>
+        <StyledCloseBtn onClick={onClose} className="close-button">
+          <AiOutlineClose size={24} />
+        </StyledCloseBtn>
         <StyledImgWrapper>
           <StyledImg src={img} alt={`${make} ${model}`} />
         </StyledImgWrapper>
@@ -74,6 +90,33 @@ const Modal = ({
             <StyledSecondaryText>{accessories[0]}</StyledSecondaryText>
           </StyledSecondaryList>
         </StyledPrimaryBlock>
+        <StyledPrimaryDescr>{description}</StyledPrimaryDescr>
+        <StyledSecondaryBlock>
+          <StyledInfoTitle>Accessories and functionalities:</StyledInfoTitle>
+          <StyledSecondaryList>
+            {accessories.map((accessory, index) => (
+              <StyledSecondaryText key={index}>{accessory}</StyledSecondaryText>
+            ))}
+            {functionalities.map((functionality, index) => (
+              <StyledSecondaryText key={index}>
+                {functionality}
+              </StyledSecondaryText>
+            ))}
+          </StyledSecondaryList>
+        </StyledSecondaryBlock>
+        <StyledSecondaryBlock>
+          <StyledInfoTitle>Rental Conditions:</StyledInfoTitle>
+          <StyledSecondaryList>
+            {rentalConditionsSplitted.map((rentalConditions, index) => (
+              <StyledRentalInfo key={index}>
+                {rentalConditions}
+              </StyledRentalInfo>
+            ))}
+            <StyledRentalInfo>Mileage: {mileage}</StyledRentalInfo>
+            <StyledRentalInfo>Price: {rentalPrice}</StyledRentalInfo>
+          </StyledSecondaryList>
+        </StyledSecondaryBlock>
+        <StyledActionBtn onClick={onClose}>Rental car</StyledActionBtn>
       </StyledModal>
     </StyledBackdrop>,
     modalRoot

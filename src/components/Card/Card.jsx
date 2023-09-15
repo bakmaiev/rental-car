@@ -27,8 +27,10 @@ const Card = ({ car }) => {
     rentalCompany,
     address,
     favorite,
+    rentalConditions,
     mileage,
     functionalities,
+    description,
   } = car;
   const newArray = address.split(",");
   const country = newArray.slice(-1).join(",").trim();
@@ -78,6 +80,8 @@ const Card = ({ car }) => {
               img={img}
               accessories={accessories}
               mileage={mileage}
+              description={description}
+              rentalConditions={rentalConditions}
             />
           )}
         </StyledInfoBlock>

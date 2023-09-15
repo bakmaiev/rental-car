@@ -15,7 +15,7 @@ export const StyledBackdrop = styled.div`
 export const StyledModal = styled.div`
   position: relative;
   max-width: 541px;
-  height: 752px;
+  height: fit-content;
   padding: 40px;
   border-radius: 24px;
   background: #fff;
@@ -35,7 +35,6 @@ export const StyledModal = styled.div`
 `;
 
 export const StyledImgWrapper = styled.div`
-  position: "relative";
   width: 100%;
   margin-bottom: 14px;
 `;
@@ -54,6 +53,7 @@ export const StyledPrimaryBlock = styled.div`
   max-width: 277px;
   flex-direction: column;
   gap: 8px;
+  margin-bottom: 14px;
 `;
 
 export const StyledPrimaryList = styled.ul`
@@ -64,8 +64,12 @@ export const StyledText = styled.li`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: #121417;
   font-size: 16px;
+  line-height: 24px;
+  color: #121417;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
   line-height: 24px;
 `;
 
@@ -97,7 +101,6 @@ export const StyledSecondaryList = styled.ul`
   flex-wrap: wrap;
   align-items: center;
   color: rgba(18, 20, 23, 0.5);
-
   font-size: 12px;
   font-weight: 400;
   line-height: 18px;
@@ -106,12 +109,84 @@ export const StyledSecondaryList = styled.ul`
 
 export const StyledSecondaryText = styled.li`
   color: rgba(18, 20, 23, 0.5);
+  font-family: Manrope;
   font-size: 12px;
+  font-style: normal;
   font-weight: 400;
   line-height: 18px;
   border-right: 1px solid rgba(18, 20, 23, 0.2);
   padding-right: 4px;
   &:last-child {
     border-right: none;
+  }
+`;
+
+export const StyledCloseBtn = styled.button`
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background-color: transparent;
+  cursor: pointer;
+`;
+
+export const StyledPrimaryDescr = styled.p`
+  max-width: 461px;
+  margin-bottom: 24px;
+  color: #121417;
+  font-family: Manrope;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+`;
+
+export const StyledSecondaryBlock = styled.div`
+  display: flex;
+  max-width: 461px;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 24px;
+`;
+
+export const StyledInfoTitle = styled.p`
+  color: #121417;
+  font-family: Manrope;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+`;
+
+export const StyledRentalInfo = styled.li`
+  padding: 7px 14px;
+  border-radius: 35px;
+  background: #f9f9f9;
+  color: #363535;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.5;
+`;
+
+export const StyledActionBtn = styled.button`
+  display: flex;
+  width: 168px;
+  height: 44px;
+  padding: 12px 0;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  background: #3470ff;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  font-family: Manrope;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px;
+  color: #fff;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover {
+    background: #445c84;
   }
 `;
