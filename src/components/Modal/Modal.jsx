@@ -4,8 +4,6 @@ import {
   StyledActionBtn,
   StyledBackdrop,
   StyledCloseBtn,
-  StyledFunctBlock,
-  StyledFunctTitle,
   StyledImg,
   StyledImgWrapper,
   StyledInfoTitle,
@@ -13,7 +11,6 @@ import {
   StyledPrimaryBlock,
   StyledPrimaryDescr,
   StyledPrimaryList,
-  StyledRentalBlock,
   StyledRentalInfo,
   StyledSecondaryBlock,
   StyledSecondaryList,
@@ -43,15 +40,15 @@ const Modal = ({
   rentalConditions,
 }) => {
   useEffect(() => {
+    document.body.style.overflow = "hidden";
     const handleKeyDown = (e) => {
       if (e.code === "Escape") {
         onClose();
       }
     };
-
     window.addEventListener("keydown", handleKeyDown);
-
     return () => {
+      document.body.style.overflow = "auto";
       window.removeEventListener("keydown", handleKeyDown);
     };
   }, [onClose]);

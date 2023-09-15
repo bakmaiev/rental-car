@@ -1,3 +1,4 @@
+import { AiOutlineHeart } from "react-icons/ai";
 import styled from "styled-components";
 
 export const StyledItem = styled.li`
@@ -22,7 +23,7 @@ export const StyledInfoBlock = styled.div`
 `;
 
 export const StyledImgWrapper = styled.div`
-  position: "relative";
+  position: relative;
   width: 100%;
 `;
 
@@ -40,7 +41,7 @@ export const StyledIconBtn = styled.button`
   top: 14px;
   right: 14px;
   cursor: pointer;
-  background-color: "black";
+  background-color: transparent;
 `;
 
 export const StyledPrimaryList = styled.ul`
@@ -76,7 +77,7 @@ export const StyledLearnMoreBtn = styled.button`
   color: #fff;
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
   &:hover {
-    background: #445c84;
+    background: #00bfff;
   }
 `;
 
@@ -101,5 +102,15 @@ export const StyledSecondaryText = styled.li`
   padding-right: 4px;
   &:last-child {
     border-right: none;
+  }
+`;
+
+export const StyledFavoriteIcon = styled(AiOutlineHeart)`
+  width: 18px;
+  height: 18px;
+  color: #ffffffcc;
+  fill: #ffffffcc;
+  &.active {
+    color: #3470ff;
   }
 `;

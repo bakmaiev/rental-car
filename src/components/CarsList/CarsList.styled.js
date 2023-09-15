@@ -5,4 +5,5 @@ export const StyledList = styled.ul`
   justify-content: center;
   flex-wrap: wrap;
   gap: 29px;
+  margin-bottom: 100px;
 `;

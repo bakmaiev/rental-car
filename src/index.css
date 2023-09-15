@@ -1,5 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&display=swap");
 
+html::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  scrollbar-width: none;
+}
+
 html,
 body {
   position: relative;

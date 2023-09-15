@@ -3,6 +3,9 @@ import { getCars } from "./operations";
 
 const initialState = {
   items: [],
+  totalItems: 0,
+  page: 1,
+  perPage: 8,
   isLoading: false,
   error: null,
 };
@@ -11,6 +14,7 @@ const handleFulfilled = (state, action) => {
   state.isLoading = false;
   state.error = null;
   state.items = action.payload;
+  state.totalItems = action.payload.length;
 };
 
 const handlePending = (state) => {
@@ -25,6 +29,11 @@ const handleRejected = (state, action) => {
 const carsSlice = createSlice({
   name: "cars",
   initialState,
+  reducers: {
+    updatePage(state, action) {
+      state.page += 1;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getCars.fulfilled, handleFulfilled)
@@ -33,4 +42,5 @@ const carsSlice = createSlice({
   },
 });
 
+export const { updatePage } = carsSlice.actions;
 export const carsReducer = carsSlice.reducer;

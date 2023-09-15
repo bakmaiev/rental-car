@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import {
+  StyledFavoriteIcon,
   StyledIconBtn,
   StyledImg,
   StyledImgWrapper,
@@ -13,6 +14,7 @@ import {
   StyledText,
 } from "./Card.styled";
 import Modal from "../Modal/Modal";
+import { AiOutlineHeart } from "react-icons/ai";
 
 const Card = ({ car }) => {
   const {
@@ -37,6 +39,11 @@ const Card = ({ car }) => {
   const city = newArray[newArray.length - 2].trim();
 
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isFavorite, setIsFavorite] = useState(false);
+
+  const handleFavoriteBtn = () => {
+    setIsFavorite(!isFavorite);
+  };
 
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
@@ -47,7 +54,9 @@ const Card = ({ car }) => {
       <StyledInfoWrapper>
         <StyledImgWrapper>
           <StyledImg src={img} alt={`${make} ${model}`} />
-          <StyledIconBtn type="button"></StyledIconBtn>
+          <StyledIconBtn type="button" onClick={handleFavoriteBtn}>
+            <StyledFavoriteIcon />
+          </StyledIconBtn>
         </StyledImgWrapper>
         <StyledInfoBlock>
           <StyledPrimaryList>
