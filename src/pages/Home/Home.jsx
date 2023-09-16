@@ -7,11 +7,16 @@ import {
   StyledInfo,
   StyledWrapper,
 } from "./Home.styled";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate("/catalog", { replace: true });
+  };
   return (
     <StyledHomeSection>
-      <StyledWrapper>
+      <StyledWrapper onClick={handleClick}>
         <StyledImg src={require("../../images/1.jpg")} alt="car" />
         <StyledInfo>
           <StyledFeaturesTitle>User-Friendly Interface</StyledFeaturesTitle>
@@ -23,7 +28,7 @@ const Home = () => {
           </StyledHomeDescr>
         </StyledInfo>
       </StyledWrapper>
-      <StyledWrapper>
+      <StyledWrapper onClick={handleClick}>
         <StyledInfo>
           <StyledFeaturesTitle>24/7 Customer Support:</StyledFeaturesTitle>
           <StyledHomeDescr>
@@ -34,7 +39,7 @@ const Home = () => {
         </StyledInfo>
         <StyledImg src={require("../../images/2.jpg")} alt="car" />
       </StyledWrapper>
-      <StyledWrapper>
+      <StyledWrapper onClick={handleClick}>
         <StyledImg src={require("../../images/3.jpg")} alt="car" />
         <StyledInfo>
           <StyledFeaturesTitle>Large Fleet:</StyledFeaturesTitle>
@@ -45,7 +50,7 @@ const Home = () => {
           </StyledHomeDescr>
         </StyledInfo>
       </StyledWrapper>
-      <StyledWrapper>
+      <StyledWrapper onClick={handleClick}>
         <StyledInfo>
           <StyledFeaturesTitle>Booking Flexibility:</StyledFeaturesTitle>
           <StyledHomeDescr>

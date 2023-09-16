@@ -189,5 +189,6 @@ export const StyledActionBtn = styled.button`
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
   &:hover {
     background: #121417;
+    transform: scale(1.1);
   }
 `;

@@ -42,19 +42,29 @@ export const StyledIconBtn = styled.button`
   right: 14px;
   cursor: pointer;
   background-color: transparent;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover {
+    transform: scale(1.2);
+  }
 `;
 
 export const StyledPrimaryList = styled.ul`
   display: flex;
+  justify-content: space-between;
 `;
 
 export const StyledText = styled.li`
   display: flex;
-  justify-content: space-between;
   align-items: center;
   color: #121417;
   font-size: 16px;
   line-height: 24px;
+  span {
+    margin-right: 5px;
+    &:nth-child(2) {
+      color: #3470ff;
+    }
+  }
 `;
 
 export const StyledLearnMoreBtn = styled.button`
@@ -78,6 +88,7 @@ export const StyledLearnMoreBtn = styled.button`
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
   &:hover {
     background: #121417;
+    transform: scale(1.1);
   }
 `;
 

@@ -12,6 +12,7 @@ import { getCars, getTotal } from "../../redux/cars/operations";
 import CarsList from "../../components/CarsList/CarsList";
 import Loader from "../../components/Loader/Loader";
 import { updatePage } from "../../redux/cars/carsSlice";
+import { StyledLoadMoreBtn } from "./Catalog.styled";
 
 const Catalog = () => {
   const dispatch = useDispatch();
@@ -40,9 +41,9 @@ const Catalog = () => {
       <section>
         {cars.length > 0 && <CarsList cars={cars} />}
         {isMoreItems() && (
-          <button type="button" onClick={handleLoadMore}>
+          <StyledLoadMoreBtn type="button" onClick={handleLoadMore}>
             Load More
-          </button>
+          </StyledLoadMoreBtn>
         )}
       </section>
     </>

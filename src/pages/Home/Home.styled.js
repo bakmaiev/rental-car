@@ -12,8 +12,13 @@ export const StyledWrapper = styled.div`
   box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
     rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
   margin-bottom: 30px;
+  cursor: pointer;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   @media (max-width: 767px) {
     flex-direction: column-reverse;
+  }
+  &:hover {
+    transform: scale(0.9);
   }
 `;
 

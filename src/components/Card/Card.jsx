@@ -68,7 +68,9 @@ const Card = ({ car }) => {
         <StyledInfoBlock>
           <StyledPrimaryList>
             <StyledText>
-              {make} {model}, {year}
+              <span>{make} </span>
+              {model && <span>{model},</span>}
+              <span>{year}</span>
             </StyledText>
             <StyledText>{rentalPrice}</StyledText>
           </StyledPrimaryList>

@@ -57,12 +57,21 @@ const Modal = ({
   const country = newArray.slice(-1).join(",").trim();
   const city = newArray[newArray.length - 2].trim();
   const rentalConditionsSplitted = rentalConditions.split("\n");
+  const stringedMileage = mileage.toString();
+  const formattedMileage =
+    stringedMileage.slice(0, 1) + "," + stringedMileage.slice(1);
 
   const handleBackdropClick = (e) => {
     if (e.target === e.currentTarget) {
       onClose();
     }
   };
+
+  const handleActionBtn = () => {
+    window.open("tel:+380730000000");
+    onClose();
+  };
+
   return createPortal(
     <StyledBackdrop onClick={handleBackdropClick}>
       <StyledModal>
@@ -109,11 +118,11 @@ const Modal = ({
                 {rentalConditions}
               </StyledRentalInfo>
             ))}
-            <StyledRentalInfo>Mileage: {mileage}</StyledRentalInfo>
+            <StyledRentalInfo>Mileage: {formattedMileage}</StyledRentalInfo>
             <StyledRentalInfo>Price: {rentalPrice}</StyledRentalInfo>
           </StyledSecondaryList>
         </StyledSecondaryBlock>
-        <StyledActionBtn onClick={onClose}>Rental car</StyledActionBtn>
+        <StyledActionBtn onClick={handleActionBtn}>Rental car</StyledActionBtn>
       </StyledModal>
     </StyledBackdrop>,
     modalRoot
