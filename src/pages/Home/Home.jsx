@@ -30,11 +30,12 @@ const Home = () => {
       </StyledWrapper>
       <StyledWrapper onClick={handleClick}>
         <StyledInfo>
-          <StyledFeaturesTitle>24/7 Customer Support:</StyledFeaturesTitle>
+          <StyledFeaturesTitle>Booking Flexibility:</StyledFeaturesTitle>
           <StyledHomeDescr>
-            Travel emergencies can happen at any time. Our dedicated customer
-            support team is available around the clock to assist you with any
-            inquiries or issues that may arise during your rental experience.
+            Plan your trip with confidence. Reserve a car for a few hours, a
+            day, a week, or even longer. Our app offers flexible booking options
+            that adapt to your schedule, giving you the freedom to explore at
+            your own pace.
           </StyledHomeDescr>
         </StyledInfo>
         <StyledImg src={require("../../images/2.jpg")} alt="car" />
@@ -49,18 +50,6 @@ const Home = () => {
             every budget, you'll find the perfect vehicle to suit your needs.
           </StyledHomeDescr>
         </StyledInfo>
-      </StyledWrapper>
-      <StyledWrapper onClick={handleClick}>
-        <StyledInfo>
-          <StyledFeaturesTitle>Booking Flexibility:</StyledFeaturesTitle>
-          <StyledHomeDescr>
-            Plan your trip with confidence. Reserve a car for a few hours, a
-            day, a week, or even longer. Our app offers flexible booking options
-            that adapt to your schedule, giving you the freedom to explore at
-            your own pace.
-          </StyledHomeDescr>
-        </StyledInfo>
-        <StyledImg src={require("../../images/4.jpg")} alt="car" />
       </StyledWrapper>
     </StyledHomeSection>
   );

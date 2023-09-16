@@ -57,6 +57,8 @@ const Modal = ({
   const country = newArray.slice(-1).join(",").trim();
   const city = newArray[newArray.length - 2].trim();
   const rentalConditionsSplitted = rentalConditions.split("\n");
+  const minimumAge = rentalConditionsSplitted[0].slice(-2);
+  const finalConditions = rentalConditionsSplitted.slice(1);
   const stringedMileage = mileage.toString();
   const formattedMileage =
     stringedMileage.slice(0, 1) + "," + stringedMileage.slice(1);
@@ -84,7 +86,9 @@ const Modal = ({
         <StyledPrimaryBlock>
           <StyledPrimaryList>
             <StyledText>
-              {make} {model}, {year}
+              <span>{make} </span>
+              {model && <span>{model},</span>}
+              <span>{year}</span>
             </StyledText>
           </StyledPrimaryList>
           <StyledSecondaryList>
@@ -113,13 +117,20 @@ const Modal = ({
         <StyledSecondaryBlock>
           <StyledInfoTitle>Rental Conditions:</StyledInfoTitle>
           <StyledSecondaryList>
-            {rentalConditionsSplitted.map((rentalConditions, index) => (
+            <StyledRentalInfo>
+              Minimum age: <span>{minimumAge}</span>
+            </StyledRentalInfo>
+            {finalConditions.map((rentalConditions, index) => (
               <StyledRentalInfo key={index}>
                 {rentalConditions}
               </StyledRentalInfo>
             ))}
-            <StyledRentalInfo>Mileage: {formattedMileage}</StyledRentalInfo>
-            <StyledRentalInfo>Price: {rentalPrice}</StyledRentalInfo>
+            <StyledRentalInfo>
+              Mileage: <span>{formattedMileage}</span>
+            </StyledRentalInfo>
+            <StyledRentalInfo>
+              Price: <span>{rentalPrice}</span>
+            </StyledRentalInfo>
           </StyledSecondaryList>
         </StyledSecondaryBlock>
         <StyledActionBtn onClick={handleActionBtn}>Rental car</StyledActionBtn>

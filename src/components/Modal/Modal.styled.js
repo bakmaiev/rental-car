@@ -72,6 +72,12 @@ export const StyledText = styled.li`
   font-style: normal;
   font-weight: 500;
   line-height: 24px;
+  span {
+    margin-right: 5px;
+    &:nth-child(2) {
+      color: #3470ff;
+    }
+  }
 `;
 
 export const StyledLearnMoreBtn = styled.button`
@@ -106,6 +112,11 @@ export const StyledSecondaryList = styled.ul`
   font-weight: 400;
   line-height: 18px;
   gap: 4px;
+  &:first-child {
+    li:nth-last-child(-n + 2) {
+      color: #3470ff;
+    }
+  }
 `;
 
 export const StyledSecondaryText = styled.li`
@@ -128,6 +139,10 @@ export const StyledCloseBtn = styled.button`
   right: 16px;
   background-color: transparent;
   cursor: pointer;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover {
+    transform: scale(0.9);
+  }
 `;
 
 export const StyledPrimaryDescr = styled.p`
@@ -165,7 +180,15 @@ export const StyledRentalInfo = styled.li`
   color: #363535;
   font-size: 12px;
   font-weight: 400;
-  line-height: 1.5;
+  line-height: 18px;
+  span {
+    color: #3470ff;
+    font-family: Montserrat, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 18px;
+    letter-spacing: -0.24px;
+  }
 `;
 
 export const StyledActionBtn = styled.button`
