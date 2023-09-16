@@ -31,10 +31,12 @@ const Catalog = () => {
   return (
     <>
       {isLoading && !error && <Loader />}
-      <CarsList cars={cars} />
-      <button type="button" onClick={handleLoadMore}>
-        Load More
-      </button>
+      <section>
+        {cars.length > 0 && <CarsList cars={cars} />}
+        <button type="button" onClick={handleLoadMore}>
+          Load More
+        </button>
+      </section>
     </>
   );
 };

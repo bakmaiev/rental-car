@@ -93,7 +93,7 @@ export const StyledLearnMoreBtn = styled.button`
   line-height: 20px;
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
   &:hover {
-    background: #445c84;
+    background: #121417;
   }
 `;
 
@@ -188,6 +188,6 @@ export const StyledActionBtn = styled.button`
   color: #fff;
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
   &:hover {
-    background: #0047ab;
+    background: #121417;
   }
 `;
