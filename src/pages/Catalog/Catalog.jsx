@@ -6,8 +6,9 @@ import {
   selectError,
   selectIsLoading,
   selectPerPage,
+  selectTotalItems,
 } from "../../redux/cars/selectors";
-import { getCars } from "../../redux/cars/operations";
+import { getCars, getTotal } from "../../redux/cars/operations";
 import CarsList from "../../components/CarsList/CarsList";
 import Loader from "../../components/Loader/Loader";
 import { updatePage } from "../../redux/cars/carsSlice";
@@ -19,13 +20,18 @@ const Catalog = () => {
   const error = useSelector(selectError);
   const page = useSelector(selectCurrentPage);
   const perPage = useSelector(selectPerPage);
+  const totalItems = useSelector(selectTotalItems);
+  const isMoreItems = () => totalItems > page * perPage;
 
   const handleLoadMore = () => {
-    dispatch(updatePage(page + 1));
+    if (isMoreItems()) {
+      dispatch(updatePage());
+    }
   };
 
   useEffect(() => {
     dispatch(getCars({ page, perPage }));
+    dispatch(getTotal());
   }, [dispatch, page, perPage]);
 
   return (
@@ -33,9 +39,11 @@ const Catalog = () => {
       {isLoading && !error && <Loader />}
       <section>
         {cars.length > 0 && <CarsList cars={cars} />}
-        <button type="button" onClick={handleLoadMore}>
-          Load More
-        </button>
+        {isMoreItems() && (
+          <button type="button" onClick={handleLoadMore}>
+            Load More
+          </button>
+        )}
       </section>
     </>
   );

@@ -20,3 +20,16 @@ export const getCars = createAsyncThunk(
     }
   }
 );
+
+export const getTotal = createAsyncThunk(
+  "cars/getTotal",
+  async (_, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.get("/adverts");
+      const result = data.length;
+      return result;
+    } catch (e) {
+      return rejectWithValue(e.message);
+    }
+  }
+);
