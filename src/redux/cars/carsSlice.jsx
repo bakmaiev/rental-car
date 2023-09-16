@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getCars, getTotal } from "./operations";
+import { Notify } from "notiflix";
 
 const initialState = {
   items: [],
@@ -43,11 +44,13 @@ const carsSlice = createSlice({
     },
     setFavorite(state, action) {
       state.favorites.push(action.payload);
+      Notify.success("The car has been successfully added to favorites");
     },
     removeFavorite(state, action) {
       state.favorites = state.favorites.filter(
         (car) => car.id !== action.payload.id
       );
+      Notify.success("The car has been successfully removed from favorites");
     },
   },
   extraReducers: (builder) => {
