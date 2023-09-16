@@ -8,7 +8,7 @@ const Favorites = lazy(() => import("../../pages/Favorites/Favorites"));
 
 function App() {
   return (
-    <BrowserRouter basename="rental-car">
+    <BrowserRouter basename="/rental-car">
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
