@@ -4,6 +4,7 @@ import {
   StyledContainer,
   StyledHeader,
   StyledLogoLink,
+  StyledLogoTitle,
   StyledLogoWrapper,
   StyledNavigationLink,
   StyledNavigationList,
@@ -16,14 +17,11 @@ const Header = () => {
       <StyledContainer>
         <StyledLogoWrapper>
           <StyledLogoLink to="/">
-            <span>Rental Car</span>
+            <StyledLogoTitle>Rental Car</StyledLogoTitle>
             <MdCarRental size={40} />
           </StyledLogoLink>
         </StyledLogoWrapper>
         <StyledNavigationList>
-          <li>
-            <StyledNavigationLink to="/">Home</StyledNavigationLink>
-          </li>
           <li>
             {" "}
             <StyledNavigationLink to="/catalog">Catalog</StyledNavigationLink>

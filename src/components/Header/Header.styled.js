@@ -33,6 +33,12 @@ export const StyledNavigationList = styled.ul`
   display: flex;
   align-items: center;
   gap: 60px;
+  @media (max-width: 767px) {
+    gap: 30px;
+  }
+  @media (max-width: 374px) {
+    gap: 10px;
+  }
 `;
 
 export const StyledNavigationLink = styled(NavLink)`
@@ -72,4 +78,15 @@ export const StyledLogoLink = styled(NavLink)`
   display: flex;
   align-items: center;
   gap: 8px;
+  @media (max-width: 374px) {
+    gap: 0px;
+  }
+`;
+
+export const StyledLogoTitle = styled.h1`
+  color: #121417;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
 `;
