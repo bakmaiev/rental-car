@@ -34,11 +34,6 @@ const Filter = ({ onSearchClick }) => {
     setTo(value);
   };
 
-  const handleSearch = () => {
-    const filterParams = { brand, price, from, to };
-    onSearchClick(filterParams);
-  };
-
   return (
     <StyledForm>
       <div>
@@ -78,9 +73,7 @@ const Filter = ({ onSearchClick }) => {
           </StyledFilterField>
         </StyledFilterWrap>
       </StyledFilter>
-      <StyledButton type="button" onClick={handleSearch}>
-        Search
-      </StyledButton>
+      <StyledButton type="button">Search</StyledButton>
     </StyledForm>
   );
 };
