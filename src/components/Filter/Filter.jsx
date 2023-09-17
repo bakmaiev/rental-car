@@ -17,7 +17,6 @@ const Filter = ({ onSearchClick }) => {
   const [to, setTo] = useState(null);
   const [brand, setBrand] = useState("");
   const [price, setPrice] = useState("");
-
   const brandList = brands;
   const priceList = generatePriceList();
 

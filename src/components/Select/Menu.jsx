@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { StyledItem, StyledMenu } from "./Select.styled";
 
 const Menu = ({ options, onChange, value, onSelectedItemChange }) => {

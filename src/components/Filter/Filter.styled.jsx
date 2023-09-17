@@ -59,7 +59,7 @@ export const StyledFilterLabel = styled.span`
 export const StyledButton = styled.button`
   display: flex;
   width: 136px;
-  height: 44px;
+  height: 48px;
   padding: 12px 0;
   justify-content: center;
   align-items: center;

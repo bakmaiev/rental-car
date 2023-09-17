@@ -10,14 +10,14 @@ export const StyledMenu = styled.ul`
   top: 110%;
   left: 0;
 
-  width: 100%;
+  width: 86%;
   height: 272px;
   padding: 14px 18px;
 
   overflow-y: scroll;
   overflow-x: hidden;
 
-  z-index: 9;
+  z-index: 1;
 
   border: 1px solid rgba(18, 20, 23, 0.05);
   border-radius: 14px;
@@ -51,11 +51,10 @@ export const StyledWrapper = styled.div`
 export const StyledInput = styled.input`
   width: 100%;
   height: 100%;
-
+  padding: 0;
   border: 0;
   outline: 0;
   background-color: transparent;
-
   font-size: 18px;
   font-weight: 500;
   line-height: 20px;

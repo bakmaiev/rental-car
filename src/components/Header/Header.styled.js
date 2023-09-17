@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const StyledHeader = styled.header`
   position: sticky;
   top: 0;
-  z-index: 1;
+  z-index: 2;
   width: 100%;
   margin-bottom: 30px;
   background-color: #fff;
