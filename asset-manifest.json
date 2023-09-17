@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/rental-car/static/css/main.ce7f7755.css",
-    "main.js": "/rental-car/static/js/main.4d9577e1.js",
+    "main.css": "/rental-car/static/css/main.5add9322.css",
+    "main.js": "/rental-car/static/js/main.88abba5c.js",
     "static/js/304.72d1729f.chunk.js": "/rental-car/static/js/304.72d1729f.chunk.js",
-    "static/js/101.ba8ac05f.chunk.js": "/rental-car/static/js/101.ba8ac05f.chunk.js",
+    "static/js/174.6743ea43.chunk.js": "/rental-car/static/js/174.6743ea43.chunk.js",
     "static/js/786.c2a8b03d.chunk.js": "/rental-car/static/js/786.c2a8b03d.chunk.js",
-    "static/js/820.eefbd231.chunk.js": "/rental-car/static/js/820.eefbd231.chunk.js",
+    "static/js/820.afc3e369.chunk.js": "/rental-car/static/js/820.afc3e369.chunk.js",
     "static/media/2.jpg": "/rental-car/static/media/2.e2353140d78c8d8ddefd.jpg",
     "static/media/3.jpg": "/rental-car/static/media/3.3359fc8c720bb34bda29.jpg",
     "static/media/1.jpg": "/rental-car/static/media/1.e80c73c9b0db3a7402fd.jpg",
     "index.html": "/rental-car/index.html",
-    "main.ce7f7755.css.map": "/rental-car/static/css/main.ce7f7755.css.map",
-    "main.4d9577e1.js.map": "/rental-car/static/js/main.4d9577e1.js.map",
+    "main.5add9322.css.map": "/rental-car/static/css/main.5add9322.css.map",
+    "main.88abba5c.js.map": "/rental-car/static/js/main.88abba5c.js.map",
     "304.72d1729f.chunk.js.map": "/rental-car/static/js/304.72d1729f.chunk.js.map",
-    "101.ba8ac05f.chunk.js.map": "/rental-car/static/js/101.ba8ac05f.chunk.js.map",
+    "174.6743ea43.chunk.js.map": "/rental-car/static/js/174.6743ea43.chunk.js.map",
     "786.c2a8b03d.chunk.js.map": "/rental-car/static/js/786.c2a8b03d.chunk.js.map",
-    "820.eefbd231.chunk.js.map": "/rental-car/static/js/820.eefbd231.chunk.js.map"
+    "820.afc3e369.chunk.js.map": "/rental-car/static/js/820.afc3e369.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ce7f7755.css",
-    "static/js/main.4d9577e1.js"
+    "static/css/main.5add9322.css",
+    "static/js/main.88abba5c.js"
   ]
 }
