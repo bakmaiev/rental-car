@@ -13,6 +13,7 @@ import CarsList from "../../components/CarsList/CarsList";
 import Loader from "../../components/Loader/Loader";
 import { updatePage } from "../../redux/cars/carsSlice";
 import { StyledLoadMoreBtn } from "./Catalog.styled";
+import Filter from "../../components/Filter/Filter";
 
 const Catalog = () => {
   const dispatch = useDispatch();
@@ -22,6 +23,7 @@ const Catalog = () => {
   const page = useSelector(selectCurrentPage);
   const perPage = useSelector(selectPerPage);
   const totalItems = useSelector(selectTotalItems);
+
   const isMoreItems = () => totalItems > page * perPage;
 
   const handleLoadMore = () => {
@@ -39,6 +41,7 @@ const Catalog = () => {
     <>
       {isLoading && !error && <Loader />}
       <section>
+        <Filter />
         {cars.length > 0 && <CarsList cars={cars} />}
         {isMoreItems() && (
           <StyledLoadMoreBtn type="button" onClick={handleLoadMore}>
