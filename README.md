@@ -8,7 +8,7 @@ The homepage offers a comprehensive overview of our services and offerings.
 
 ## Catalog
 
-The catalog page enables users to explore our diverse range of cars, each available in various configurations. Users have the option to filter cars based on the following criteria:
+The catalog page enables users to explore our diverse range of cars, each available in various configurations.
 
 ## Favorites
 
