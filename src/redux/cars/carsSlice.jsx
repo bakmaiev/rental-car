@@ -15,11 +15,8 @@ const initialState = {
 const handleFulfilled = (state, action) => {
   state.isLoading = false;
   state.error = null;
-  if (state.page === 1) {
-    state.items = action.payload;
-  } else {
-    state.items = [...state.items, ...action.payload];
-  }
+
+  state.items = [...state.items, ...action.payload];
 };
 
 const handlePending = (state) => {

@@ -11,26 +11,39 @@ import {
   StyledFilterWrap,
   StyledForm,
 } from "./Filter.styled";
+import { useDispatch } from "react-redux";
+import {
+  setBrandFilter,
+  setFromFilter,
+  setPriceFilter,
+  setToFilter,
+} from "../../redux/filter/filterSlice";
 
 const Filter = ({ onSearchClick }) => {
+  const dispatch = useDispatch();
   const [from, setFrom] = useState(null);
   const [to, setTo] = useState(null);
   const [brand, setBrand] = useState("");
   const [price, setPrice] = useState("");
+
   const brandList = brands;
   const priceList = generatePriceList();
 
   const handleBrandChange = (value) => {
     setBrand(value);
+    dispatch(setBrandFilter(brand));
   };
   const handlePriceChange = (value) => {
     setPrice(value);
+    dispatch(setPriceFilter(price));
   };
   const handleFromChange = (value) => {
     setFrom(value);
+    dispatch(setFromFilter(from));
   };
   const handleToChange = (value) => {
     setTo(value);
+    dispatch(setToFilter(to));
   };
 
   return (

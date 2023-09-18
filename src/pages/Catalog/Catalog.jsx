@@ -14,6 +14,12 @@ import Loader from "../../components/Loader/Loader";
 import { updatePage } from "../../redux/cars/carsSlice";
 import { StyledLoadMoreBtn } from "./Catalog.styled";
 import Filter from "../../components/Filter/Filter";
+import {
+  selectBrandFilter,
+  selectFromFilter,
+  selectPriceFilter,
+  selectToFilter,
+} from "../../redux/filter/selectors";
 
 const Catalog = () => {
   const dispatch = useDispatch();
@@ -23,6 +29,10 @@ const Catalog = () => {
   const page = useSelector(selectCurrentPage);
   const perPage = useSelector(selectPerPage);
   const totalItems = useSelector(selectTotalItems);
+  const brandsFilter = useSelector(selectBrandFilter);
+  const priceFilter = useSelector(selectPriceFilter);
+  const fromFilter = useSelector(selectFromFilter);
+  const toFilter = useSelector(selectToFilter);
 
   const isMoreItems = () => totalItems > page * perPage;
 
@@ -31,6 +41,17 @@ const Catalog = () => {
       dispatch(updatePage());
     }
   };
+
+  const filteredCars = cars.filter((car) => {
+    return (
+      car.make === brandsFilter ||
+      parseInt(car.rentalPrice.substring(1)) >= parseInt(priceFilter) ||
+      car.mileage > fromFilter ||
+      car.mileage < toFilter
+    );
+  });
+
+  const renderedCars = filteredCars.length === 0 ? cars : filteredCars;
 
   useEffect(() => {
     dispatch(getCars({ page, perPage }));
@@ -42,7 +63,7 @@ const Catalog = () => {
       {isLoading && !error && <Loader />}
       <section>
         <Filter />
-        {cars.length > 0 && <CarsList cars={cars} />}
+        {renderedCars.length > 0 && <CarsList cars={renderedCars} />}
         {isMoreItems() && (
           <StyledLoadMoreBtn type="button" onClick={handleLoadMore}>
             Load More
