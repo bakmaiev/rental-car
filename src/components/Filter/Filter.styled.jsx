@@ -8,7 +8,7 @@ export const StyledFilterWrap = styled.div`
 export const StyledFilterField = styled.div`
   display: flex;
   align-items: center;
-  width: 160px;
+  max-width: 160px;
   height: 48px;
   padding: 0px 24px;
   background-color: #f7f7fb;

@@ -44,14 +44,20 @@ const Catalog = () => {
 
   const filteredCars = cars.filter((car) => {
     return (
-      car.make === brandsFilter ||
-      parseInt(car.rentalPrice.substring(1)) >= parseInt(priceFilter) ||
-      car.mileage > fromFilter ||
+      car.make === brandsFilter &&
+      parseInt(car.rentalPrice.substring(1)) >= parseInt(priceFilter) &&
+      car.mileage > fromFilter &&
       car.mileage < toFilter
     );
   });
 
-  const renderedCars = filteredCars.length === 0 ? cars : filteredCars;
+  const renderCars = () => {
+    if (filteredCars.length > 0) {
+      return filteredCars;
+    } else {
+      return cars;
+    }
+  };
 
   useEffect(() => {
     dispatch(getCars({ page, perPage }));
@@ -63,7 +69,7 @@ const Catalog = () => {
       {isLoading && !error && <Loader />}
       <section>
         <Filter />
-        {renderedCars.length > 0 && <CarsList cars={renderedCars} />}
+        {renderCars().length > 0 && <CarsList cars={renderCars()} />}
         {isMoreItems() && (
           <StyledLoadMoreBtn type="button" onClick={handleLoadMore}>
             Load More
