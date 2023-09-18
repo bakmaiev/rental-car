@@ -16,7 +16,7 @@ const handleFulfilled = (state, action) => {
   state.isLoading = false;
   state.error = null;
 
-  state.items = [...state.items, ...action.payload];
+  state.items = action.payload;
 };
 
 const handlePending = (state) => {
@@ -37,7 +37,7 @@ const carsSlice = createSlice({
   initialState,
   reducers: {
     updatePage(state, action) {
-      state.page += 1;
+      state.perPage += 8;
     },
     setFavorite(state, action) {
       state.favorites.push(action.payload);
