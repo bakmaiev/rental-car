@@ -11,15 +11,13 @@ import {
   StyledFilterWrap,
   StyledForm,
 } from "./Filter.styled";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   setBrandFilter,
   setFromFilter,
   setPriceFilter,
   setToFilter,
-  setIsReset,
 } from "../../redux/filter/filterSlice";
-import { selectIsReset } from "../../redux/filter/selectors";
 
 const Filter = () => {
   const dispatch = useDispatch();
@@ -44,10 +42,6 @@ const Filter = () => {
     setTo(value);
   };
 
-  const handleResetChange = (reset) => {
-    dispatch(setIsReset(!reset));
-  };
-
   const handleClick = () => {
     dispatch(setBrandFilter(brand));
     dispatch(setPriceFilter(price));
@@ -70,7 +64,6 @@ const Filter = () => {
           options={brandList}
           placeholder={"Enter the text"}
           onChange={handleBrandChange}
-          onReset={handleResetChange}
         />
       </div>
 
@@ -80,7 +73,6 @@ const Filter = () => {
           options={priceList}
           placeholder={"To $"}
           onChange={handlePriceChange}
-          onReset={handleResetChange}
         />
       </div>
 
