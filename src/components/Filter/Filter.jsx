@@ -11,15 +11,17 @@ import {
   StyledFilterWrap,
   StyledForm,
 } from "./Filter.styled";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   setBrandFilter,
   setFromFilter,
   setPriceFilter,
   setToFilter,
+  setIsReset,
 } from "../../redux/filter/filterSlice";
+import { selectIsReset } from "../../redux/filter/selectors";
 
-const Filter = ({ onSearchClick }) => {
+const Filter = () => {
   const dispatch = useDispatch();
   const [from, setFrom] = useState(null);
   const [to, setTo] = useState(null);
@@ -31,19 +33,33 @@ const Filter = ({ onSearchClick }) => {
 
   const handleBrandChange = (value) => {
     setBrand(value);
-    dispatch(setBrandFilter(brand));
   };
   const handlePriceChange = (value) => {
     setPrice(value);
-    dispatch(setPriceFilter(price));
   };
   const handleFromChange = (value) => {
     setFrom(value);
-    dispatch(setFromFilter(from));
   };
   const handleToChange = (value) => {
     setTo(value);
+  };
+
+  const handleResetChange = (reset) => {
+    dispatch(setIsReset(!reset));
+  };
+
+  const handleClick = () => {
+    dispatch(setBrandFilter(brand));
+    dispatch(setPriceFilter(price));
+    dispatch(setFromFilter(from));
     dispatch(setToFilter(to));
+  };
+
+  const handleResetClick = () => {
+    dispatch(setBrandFilter(""));
+    dispatch(setPriceFilter(""));
+    dispatch(setFromFilter(null));
+    dispatch(setToFilter(null));
   };
 
   return (
@@ -54,6 +70,7 @@ const Filter = ({ onSearchClick }) => {
           options={brandList}
           placeholder={"Enter the text"}
           onChange={handleBrandChange}
+          onReset={handleResetChange}
         />
       </div>
 
@@ -63,6 +80,7 @@ const Filter = ({ onSearchClick }) => {
           options={priceList}
           placeholder={"To $"}
           onChange={handlePriceChange}
+          onReset={handleResetChange}
         />
       </div>
 
@@ -85,7 +103,12 @@ const Filter = ({ onSearchClick }) => {
           </StyledFilterField>
         </StyledFilterWrap>
       </StyledFilter>
-      <StyledButton type="button">Search</StyledButton>
+      <StyledButton onClick={handleClick} type="button">
+        Search
+      </StyledButton>
+      <StyledButton onClick={handleResetClick} type="reset">
+        Reset
+      </StyledButton>
     </StyledForm>
   );
 };
